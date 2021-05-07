@@ -1,8 +1,9 @@
 # folders
-./tmp
-./vendor
-./templates_c
+/tmp
+/vendor
+/templates_c
 
 # files
-./*.log
-./composer.lock
+*.log
+/composer.lock
+/access.log
