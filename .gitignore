@@ -1,0 +1,8 @@
+# folders
+./tmp
+./vendor
+./templates_c
+
+# files
+./*.log
+./composer.lock
