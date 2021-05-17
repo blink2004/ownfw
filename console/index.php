@@ -4,12 +4,12 @@
 
     session_start();
 
-    require_once '../vendor/autoload.php';
+    require_once './vendor/autoload.php';
 
     /**
      * Подключить все файлы из папки configs. Все файлы должны иметь расширение .php в НИЖНЕМ регистре!!!
      */
-    $files = glob('../config/*.{php}', GLOB_BRACE);
+    $files = glob('./config/*.{php}', GLOB_BRACE);
     foreach($files as $file) {
         require_once "$file";
     }
@@ -17,12 +17,12 @@
     /**
      * Подключить все файлы из папки src. Все файлы должны иметь расширение .php в НИЖНЕМ регистре!!!
      */
-    $files = glob('../src/classes/*.{php}', GLOB_BRACE);
+    $files = glob('./src/classes/*.{php}', GLOB_BRACE);
     foreach($files as $file) {
         require_once "$file";
     }
 
-    $files = glob('../src/modules/*.{php}', GLOB_BRACE);
+    $files = glob('./src/modules/*.{php}', GLOB_BRACE);
     foreach($files as $file) {
         require_once "$file";
     }
