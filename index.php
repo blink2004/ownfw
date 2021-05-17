@@ -1,5 +1,13 @@
 <?php
 
+    /**
+     * Simple PHP Framework
+     *
+     * @author Constantine M <blink2004@mail.ru>
+     * @copyright Copyright (c) 2021, Constantine M
+     * @version 1.0.0
+     */
+
     error_reporting(E_ALL);
 
     session_start();
