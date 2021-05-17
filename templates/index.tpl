@@ -18,7 +18,7 @@
         <header>
             <h1>Index page</h1>
             <div>Hello World and <b>{$name}</b> with Smarty!</div>
-            <a href="/">Home</a> |
+            <a href="?">Home</a> |
             <a href="?act=about">About</a> |
             <a href="?act=contact">Contact</a>
         </header>

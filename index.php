@@ -37,6 +37,6 @@
     $smarty->assign('content', $content);
     $smarty->display('index.tpl');
 
-    $keys4delete = array('alert', 'other_var');
+    $keys4delete = array('alert', 'user');
     foreach ($keys4delete as $key)
         $session->deleteValue($key);
