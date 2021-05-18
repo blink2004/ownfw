@@ -19,6 +19,9 @@ class Session
         unset($_SESSION[$key]);
     }
 
+    public function getInstance() {
+        return $_SESSION;
+    }
 }
 
 $session = new Session();
