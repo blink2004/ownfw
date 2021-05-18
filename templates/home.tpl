@@ -1,6 +1,6 @@
-<script type="text/javascript" src="public/js/jquery.js"></script>
-<script type="text/javascript" src="public/js/jquery.mask.js"></script>
-<script type="text/javascript">
+<script src="public/js/jquery.js"></script>
+<script src="public/js/jquery.mask.js"></script>
+<script>
     {*
     // Mask example
     $( document ).ready(function(){
