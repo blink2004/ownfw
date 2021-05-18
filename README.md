@@ -24,5 +24,10 @@ Used for fast creation simple skeleton of project (single page, business card, e
 ### Using
 For renew captcha click on captcha image.
 
+### Run PHPUnit tests
+Execute from command line:
+
+`vendor/bin/phpunit --configuration phpunit.xml`
+
 ### Author
 Constantine M
