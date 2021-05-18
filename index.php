@@ -39,6 +39,7 @@
     }
 
     // display
+    $smarty->assign('lang', 'ru');
     $smarty->assign('server', $_SERVER['PHP_SELF']);
     $smarty->assign('alert', $session->getValueOrDefault('alert', ''));
     $smarty->assign('name', 'Катруська');
