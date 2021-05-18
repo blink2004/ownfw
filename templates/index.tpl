@@ -12,6 +12,8 @@
             footer p {height: 100px; margin-top: 30px;}
             .captcha {cursor: pointer;}
             form[name=profit] {margin-top: 30px;}
+            .top-menu {background-color: black; padding: 5px 10px;}
+            .top-menu a {color: chartreuse;}
             {/literal}
         </style>
         <script>
@@ -22,11 +24,13 @@
     </head>
     <body>
         <header>
+            <div class="top-menu">
+                <a href="?">Home</a> |
+                <a href="?act=about">About</a> |
+                <a href="?act=contact">Contact</a>
+            </div>
             <h1>Index page</h1>
-            <div>Hello World and <b>{$name}</b> with Smarty!</div>
-            <a href="?">Home</a> |
-            <a href="?act=about">About</a> |
-            <a href="?act=contact">Contact</a>
+            <div>Hello Smarty!</div> World and <b>{$name}</b> with
             <noscript>
                 <p>Ваш браузер не поддерживает JavaScript! Для корректной работы рекомендуем включить JavaScript в настройках или скачать один из популярных браузеров или:</p>
                 <ul>
