@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="{$lang}" xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Own Framework - Базовый шаблон</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
-        <style type="text/css">
+        <style>
             {literal}
             body {margin: 0 50px;}
+            main {display: none;}
             footer p {height: 100px; margin-top: 30px;}
             .captcha {cursor: pointer;}
             form[name=profit] {margin-top: 30px;}
             {/literal}
         </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                document.getElementsByTagName('main')[0].style.display = 'block';
+            });
+        </script>
     </head>
     <body>
         <header>
@@ -21,12 +27,19 @@
             <a href="?">Home</a> |
             <a href="?act=about">About</a> |
             <a href="?act=contact">Contact</a>
+            <noscript>
+                <p>Ваш браузер не поддерживает JavaScript! Для корректной работы рекомендуем включить JavaScript в настройках или скачать один из популярных браузеров или:</p>
+                <ul>
+                    <li>Chrome</li>
+                    <li>Firefox</li>
+                    <li>Opera</li>
+                    <li>Safari</li>
+                    <li>MicroSoft Edge</li>
+                </ul>
+            </noscript>
         </header>
 
         <main>
-            <noscript>
-                <p>Ваш браузер не поддерживает JavaScript!</p>
-            </noscript>
             <div>
                 {if $sms_sent_result!=''}
                     <div>Your SMS was sent: <b>{$sms_sent_result}.</b></div>
