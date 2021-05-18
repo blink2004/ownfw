@@ -42,6 +42,22 @@
                 array_push($error, 'Текст с картинки указан не правильно.');
             }
 
+            // upload file
+            if ( $validate && (isset($_FILES['user']['name'])) ) {
+                try {
+                    $uploadDir = './upload_files/';
+                    do {
+                        $uploadFile = $uploadDir . sha1(basename($_FILES['user']['name']['file'] . time())) . '.' . pathinfo($_FILES['user']['name']['file'], PATHINFO_EXTENSION);
+                    ;
+                    } while ( file_exists($uploadFile) );
+                    move_uploaded_file($_FILES['user']['tmp_name']['file'], $uploadFile);
+                    $user['uploaded_file_name'] = basename($uploadFile);
+                } catch (Exception $e) {
+                    $validate = false;
+                    array_push($error, 'Не удаётся загрузить файл на сервер.');
+                }
+            }
+
             // Main action
             if ( $validate ) {
                 $smarty->assign('user', $user);
@@ -60,6 +76,7 @@
                 $message = (new Swift_Message('Wonderful Subject'))
                     ->setFrom($config['mailer']['from'])
                     ->setTo($config['mailer']['to'])
+                    ->setSubject($user['purpose'])
                     ->setBody($mailBody)
                 ;
 

@@ -40,6 +40,10 @@
                     <textarea name="user[message]" id="user[message]" class="form-control" placeholder="Текст сообщения" required minlength="10">{if $user ne ''}{$user.message}{/if}</textarea>
                 </div>
                 <div class="mb-3">
+                    <label for="user[file]" class="form-label">Файл:</label>
+                    <input type="file" name="user[file]" id="user[file]" class="form-control" placeholder="Путь к файлу" />{if $user ne ''}{$user.uploaded_file_name}{/if}
+                </div>
+                <div class="mb-3">
                     <img src="captcha.php?time={$smarty.now}" alt="Captcha" title="Кликните, чтобы обновить код" width="170" height="60" id="captcha-image" class="captcha" onclick="this.src = this.src.replace(/time=\d+/g, 'time=' + new Date().getTime());" />
                 </div>
                 <div class="mb-3">
