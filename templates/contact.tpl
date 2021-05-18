@@ -16,7 +16,7 @@
 <div>
     <h1>Contact page</h1>
     <p>
-        <div>1
+        <div>
             <div class="row">
                 <div class="col-md-5 offset-col-1">
                     <form method="post" action="{$server}?act=contact" enctype="multipart/form-data" name="feedback" id="feedback">
