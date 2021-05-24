@@ -13,7 +13,7 @@
         'port'     => 25,
         'username' => 'your username',
         'password' => 'your password',
-        'from'     => ['no-reply@no-reply.com' => 'John Doe'],
+        'from'     => ['no-reply@no-reply.com' => 'Own Framework'],
         'to'       => ['receiver@domain.org', 'other@domain.org' => 'A name'],
         'themes'   => [
             'question' => [
@@ -30,6 +30,11 @@
                 'title' => 'Техническая ошибка на сайте',
                 'value' => 'e',
                 'to'    => 'error@email.addr',
+            ],
+            'other' => [
+                'title' => 'Другая',
+                'value' => 'o',
+                'to'    => 'other@email.addr',
             ],
         ]
     ];

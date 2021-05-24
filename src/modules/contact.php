@@ -9,6 +9,7 @@
             $validate = false;
             $income = null;
             $user = $_POST['user'];
+            $mail = null;
 
             $session->setData('user', $user);
 
@@ -16,8 +17,10 @@
             if ( isset($user['theme']) and ( strlen(trim($user['theme']))>0 )  ) {
                 $user['purpose'] = null;
                 foreach ($config['mailer']['themes'] as $theme) {
-                    if ( $theme['value']==$user['theme'] )
+                    if ( $theme['value']==$user['theme'] ) {
                         $user['purpose'] = $theme['title'];
+                        $mail['to'] = $theme['to'];
+                    }
                 }
 
                 if ( !is_null($user['purpose']) ) {
@@ -42,8 +45,14 @@
                 array_push($error, 'Текст с картинки указан не правильно.');
             }
 
+            // change email from param if user send valid email as contact
+            $mail['from'] = $config['mailer']['from'];
+            if ( filter_var($user['contact'], FILTER_VALIDATE_EMAIL) ) {
+                $mail['from'] = [$user['contact'] => strip_tags(htmlspecialchars($user['name']))];
+            }
+
             // upload file
-            if ( $validate && (isset($_FILES['user']['name'])) ) {
+            if ( $validate && (!empty($_FILES['user']['name']['file'])) ) {
                 try {
                     $uploadDir = './upload_files/';
                     do {
@@ -74,8 +83,10 @@
 
                 // Create a message
                 $message = (new Swift_Message('Wonderful Subject'))
-                    ->setFrom($config['mailer']['from'])
-                    ->setTo($config['mailer']['to'])
+                    ->setContentType('text/html; charset=utf-8')
+                    ->setFrom($mail['from'])
+//                    ->setTo($config['mailer']['to'])
+                    ->setTo($mail['to'])
                     ->setSubject($user['purpose'])
                     ->setBody($mailBody)
                 ;
